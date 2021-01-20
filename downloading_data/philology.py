@@ -13,10 +13,10 @@ def get_names():
     with open('/Users/mariabocharova/PycharmProjects'
           '/Thesis/metadata.csv', encoding='utf-8') as f:
         table = f.readlines()
-        names = []
+        names = set()
         for path in table:
             if path.split(';')[0] != '\n':
-                names.append(path.split(';')[0])
+                names.add(path.split(';')[0])
     return names
 
 
@@ -90,7 +90,7 @@ def get_links(url):
 
 # main
 def make_dictionary(url, info):
-    block = {}
+
     path = ''.join(random.choice(alphabet_num) for x
                     in range(12)) + '.txt'
     while path in get_names():
@@ -102,12 +102,9 @@ def make_dictionary(url, info):
     date = info[-4:]
     resource = title
 
-    block['link'] = link
-    block['path'] = path
-    block['title'] = title
-    block['author'] = author
-    block['date'] = date
-    block['resource'] = resource
+    block = {'link': link, 'path': path,
+             'title': title, 'author': author,
+             'date': date, 'resource': resource}
     block['text'] = parse_pdf(downloading_pdf(block))
 
     # Записываю в таблицу metadata.csv

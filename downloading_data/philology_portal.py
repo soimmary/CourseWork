@@ -13,10 +13,10 @@ def get_names():
     with open('/Users/mariabocharova/PycharmProjects'
           '/Thesis/metadata.csv', encoding='utf-8') as f:
         table = f.readlines()
-        names = []
+        names = set()
         for path in table:
             if path.split(';')[0] != '\n':
-                names.append(path.split(';')[0])
+                names.add(path.split(';')[0])
     return names
 
 
@@ -64,7 +64,6 @@ def make_dictionary(url):
     page = req.text
     soup = BeautifulSoup(page, 'html.parser')
     info = soup.find_all('p')
-    block = {}
     path = ''.join(random.choice(alphabet_num) for x
                     in range(12)) + '.txt'
     while path in get_names():
@@ -79,12 +78,9 @@ def make_dictionary(url):
     date = re.findall(r'(\d\d\d\d)\.', str(info[2]))[0]
     text = soup.find('dd').text
 
-    block['path'] = path
-    block['title'] = title
-    block['author'] = author
-    block['date'] = date
-    block['resource'] = resource
-    block['text'] = text
+    block = {'path': path, 'title': title,
+             'author': author, 'date': date,
+             'resource': resource, 'text': text}
 
     if len(block['date']) != 0:
         # Записываю в таблицу metadata.csv
