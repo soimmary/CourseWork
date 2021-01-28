@@ -93,7 +93,8 @@ def get_path():
     return path
 
 
-def get_text(url):
+# Создание файла txt и пополнение таблицы metadata.csv
+def make_file(url):
     options = Options()
     ua = UserAgent()
     userAgent = ua.random
@@ -126,5 +127,5 @@ def get_text(url):
 
 with open('disser_link.txt', 'r', encoding='utf-8') as file:
     for link in file.readlines():
-        get_text(link.strip())
+        make_file(link.strip())
         time.sleep(1)
