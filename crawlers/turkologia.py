@@ -54,7 +54,7 @@ def write_to_metadata(path_file, title, author, date, resource):
         file_writer.writerow(a)
 
 
-# Записываем txt в папку Диалог 2004-2020
+# Записываем txt в папку
 def write_to_txt(path, text):
     with open(f'/Users/mariabocharova/PycharmProjects/Thesis/texts/turkplogia/{path}',
               'w', encoding='utf-8') as file:
