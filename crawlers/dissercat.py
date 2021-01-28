@@ -127,4 +127,4 @@ def get_text(url):
 with open('disser_link.txt', 'r', encoding='utf-8') as file:
     for link in file.readlines()[12012:]:
         get_text(link.strip())
-        #time.sleep(1)
+        time.sleep(1)
