@@ -55,7 +55,7 @@ _**statistics.py**_ – подсчет метрик Jiulland's _D_, R, DP.
  Таблица, содержащая метаинформацию источников, вошедших в корпус:
  https://github.com/soimmary/CourseWork/blob/main/metadata.csv
 
-## Над проектом работали:
+## Над исследованием работали:
 М. В. Бочарова: mvbocharova@edu.hse.ru
 #### Академический руководитель:
 Б. В. Орехов: nevmenandr@gmail.com
