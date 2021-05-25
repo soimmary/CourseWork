@@ -1,4 +1,5 @@
 import os
+import re
 import csv
 from tqdm import tqdm
 
@@ -40,7 +41,7 @@ def filling_table(terms, path_dec, aim_path):
                 if not path.startswith('.'):
                     with open(f'{path_dec}/{path}', 'r', encoding='utf-8') as f:
                         text = f.read()
-                        term_dict[f'{path[:-5]}-е'] = str(round(text.count(term) * 1000000 / int(corpora_size_dict[f'{path[:-4]}']), 1))
+                        term_dict[f'{path[:-5]}-е'] = str(round(len(re.findall(f'^| {term} ', text)) * 1000000 / int(corpora_size_dict[f'{path[:-4]}']), 1))
             writer.writerow([term, None, term_dict['1960-е'], term_dict['1970-е'], term_dict['1980-е'],
                             term_dict['1990-е'], term_dict['2000-е'], term_dict['2010-е'], term_dict['2020-е']])
 
