@@ -39,7 +39,7 @@ def insert_text(text, year):
         f.write(text)
 
 
-#make_docs_by_year()
+make_docs_by_year()
 
 """
 Разбиваю тексты на предложения и лемматизирую
@@ -62,9 +62,9 @@ def break_by_sent(doc_path):
             f2.write('\n')
 
 
-"""for doc in tqdm(os.listdir(path)):
+for doc in tqdm(os.listdir(path)):
     if doc.endswith('txt'):
-        break_by_sent(doc)"""
+        break_by_sent(doc)
 
 
 def lemmatizing_texts(doc):
@@ -75,10 +75,10 @@ def lemmatizing_texts(doc):
               f'/Users/mariabocharova/PycharmProjects/Thesis/texts_by_year/texts_by_year_lemm/{doc[:4]}_lemm.txt')
 
 
-"""for doc_by_sent in tqdm(os.listdir(f'{path}/texts_by_year_sent')):
+for doc_by_sent in tqdm(os.listdir(f'{path}/texts_by_year_sent')):
     if doc_by_sent.endswith('_sent.txt'):
         print(doc_by_sent)
-        lemmatizing_texts(doc_by_sent)"""
+        lemmatizing_texts(doc_by_sent)
 
 
 # Приводим тексты к красоте: заменяется \n\n+ на \n, удаляем {}
@@ -90,9 +90,9 @@ def cleaning(doc_path):
         f2.write(text)
 
 
-"""for doc_lemm in tqdm(os.listdir(f'{path}/texts_by_year_lemm')):
+for doc_lemm in tqdm(os.listdir(f'{path}/texts_by_year_lemm')):
     if doc_lemm.endswith('_lemm.txt'):
-        cleaning(doc_lemm)"""
+        cleaning(doc_lemm)
 
 
 # Создаю один ограмный txt со всеми данными
@@ -104,9 +104,9 @@ def make_one_txt(doc_path):
         f2.write(text)
 
 
-"""for elem in tqdm(os.listdir(f'{path}/texts_by_year_lemm')):
+for elem in tqdm(os.listdir(f'{path}/texts_by_year_lemm')):
     if elem.endswith('_lemm.txt'):
-        make_one_txt(elem)"""
+        make_one_txt(elem)
 
 
 # Создаю модель
